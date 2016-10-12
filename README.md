@@ -1,3 +1,4 @@
+预览网址 ： https://whrweb.github.io/turnPrepend/
 # turnPrepend
 一条接一条的出现信息的过渡动画
 ### 使用方法简单：
