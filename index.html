@@ -1,63 +1,40 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	<meta charset="utf-8" />
-	<title></title>
-	<style>
-		*{
-			padding: 0;
-			margin: 0;
-			list-style: none;
-		}
-		.pos{
-			margin-bottom: 15px;
-			background: #eee
-		}
-	</style>
-	<link rel="stylesheet" href="turnPrepend.css">
-	</head>
-	<body>
-		<div id="v-turnPrependBox" class="pos"></div>
-		<div id="turnPrependBox2" class="pos"></div>
-		<h3></h3>
+<head>
+<meta charset="utf-8" />
+<title>turnMsg - 一条接一条的平滑出现信息的过渡动画</title>
+<style>
+	*{padding: 0;margin: 0;list-style: none;color: #000}
+	div{}
+</style>
+</head>
+<body>
+	<div id="box1" style="background: #eee;"></div>
+	<br>
+	<div id="box2" style="background: #eee;"></div>
+	<br>
+	<button id="btn">点我吧</button>
 
-		<script src="jquery.js"></script>
-		<script src="turnPrepend.js"></script>
-		<script>
-		$(function(){
+<script src="jquery.js"></script>
+<script src="turnMsg.js"></script>
+<script>
+$(function(){
 
-			// 两个demo:
-			var i = 0;
-			var t = new TurnPrepend();
-			var t2 = new TurnPrepend({
-				box : "#turnPrependBox2"
-			});
-			var showBox = setInterval(function(){
-				i++;
-				t2.setHtml({
-					html : '<li>======222' + i + '</li>',
-					callback : function(box,html){
-						$("h3").html(html);
-					}
-				});
-				if(i > 5){
-					t.hideBox();
-				}else{
-					t.setHtml({
-						html : '<li>-----111' + i + '</li>'
-					});
-				}
-				if(i === 100){
-					i = 0;
-					t2.hideBox(function(that){
-						that.$box.height(30);
-						that.$box_ul.html('<li>callback</li>');
-					});
-					clearInterval(showBox);
-				}
-			},500);
+	var i = 0;
+	var t1 = new turnMsg('box1');
+	setInterval(function(){
+		t1.addText('hi，我是消息：' + (++i));
+	},800);
 
-		})
-		</script>
-	</body>
+
+	var t2 = new turnMsg("#box2", {
+		itemHeight: 100,
+		to: 'top'
+	});
+	document.getElementById('btn').onclick = function(){
+		t2.addText('hello，我是消息：' + i);
+	}
+})
+</script>
+</body>
 </html>
