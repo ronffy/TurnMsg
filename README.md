@@ -1,18 +1,18 @@
-# turnMsg - 一条接一条的平滑出现信息的过渡动画
+# TurnMsg - 一条接一条的平滑出现信息的过渡动画
 
-### [点我预览](https://wanghairong-i.github.io/turnMsg/)
+### [点我预览](https://wanghairong-i.github.io/TurnMsg/)
 
 ## 介绍
 
--   基于jQuery封装的
--   api丰富，使用简单
+-   基于`jQuery`封装的
+-   api丰富，使用非常简单
 -   自适应宽度，可方便兼容到你的项目中
 -   可配置消息是向上滚动、还是向下滚动
 -   可自定义容器、列表等样式
 
 ## 使用方法
 
--   引入 `turnMsg.js` 即可
+-   引入 `TurnMsg.js` 即可
 
 -   需要一个html容器，如:
     ```javascript
@@ -21,14 +21,14 @@
 
     ```
 
--   创建实例
+-   JS创建实例
     ```javascript
 
-    var t = new turnMsg("idName");
+    var t = new TurnMsg("idName");
 
     ```
 
--   每次传入一条信息
+-   传入一条信息则滑出一条消息，连续传入消息时则为动画平滑过渡效果
     ```javascrpt
 
     t.addText('我是一条信息啦');

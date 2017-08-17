@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>turnMsg - 一条接一条的平滑出现信息的过渡动画</title>
+<title>TurnMsg - 一条接一条的平滑出现信息的过渡动画</title>
 <style>
 	*{padding: 0;margin: 0;list-style: none;color: #000}
 	div{}
@@ -16,18 +16,18 @@
 	<button id="btn">点我吧</button>
 
 <script src="jquery.js"></script>
-<script src="turnMsg.js"></script>
+<script src="TurnMsg.js"></script>
 <script>
 $(function(){
 
 	var i = 0;
-	var t1 = new turnMsg('box1');
+	var t1 = new TurnMsg('box1');
 	setInterval(function(){
 		t1.addText('hi，我是消息：' + (++i));
 	},800);
 
 
-	var t2 = new turnMsg("#box2", {
+	var t2 = new TurnMsg("#box2", {
 		itemHeight: 100,
 		to: 'top'
 	});

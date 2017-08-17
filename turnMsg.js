@@ -1,4 +1,4 @@
-/* turnMsg.js  一条接一条的出现信息的过渡动画
+/* TurnMsg.js  一条接一条的出现信息的过渡动画
 ** auth:whr
 ** time:2016.10.12
 ** 有两个公共方法：addHtml、empty
@@ -16,7 +16,7 @@
 	** 		- max           <Num>   //容器最多条数，超过后将自动清空
 	** @param callback [选传] <Func> 初始化完成后的回调，两个参数，第一个是盒子容器的jQ对象，第二个是config对象
 	*/
-	function turnMsg(node, config, callback) {
+	function TurnMsg(node, config, callback) {
 		config = config || {};
 		var $box = typeof node === 'string' && node.indexOf('#') !== 0 ? $(document.getElementById(node)) : $(node);
 		var boxStyle = $.extend({
@@ -47,7 +47,7 @@
 		this.$box = $box.css(boxStyle).html(this.$box_ul);
 		callback && callback($box, config);
 	};
-	turnMsg.prototype.addText = function(text, callback){
+	TurnMsg.prototype.addText = function(text, callback){
 		var config = this.config,
 				to = config.to,
 				max = config.max,
@@ -73,10 +73,10 @@
 		callback && callback($box, text, li_num);
 		return this;
 	};
-	turnMsg.prototype.getHtml = function(tag, text, height){
+	TurnMsg.prototype.getHtml = function(tag, text, height){
 		return '<' + tag + ' style="height:' + height + 'px; line-height:' + height + 'px;">' + text + '</' + tag + '>';
 	}
-	turnMsg.prototype.empty = function(callback){
+	TurnMsg.prototype.empty = function(callback){
 		var that = this,
 				to = this.config.to,
 				$box = that.$box,
@@ -89,5 +89,5 @@
 		});
 		return that;
 	}
-	window.turnMsg = turnMsg;
+	window.TurnMsg = TurnMsg;
 })(jQuery);
