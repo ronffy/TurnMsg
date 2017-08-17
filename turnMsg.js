@@ -89,5 +89,6 @@
 		});
 		return that;
 	}
-	window.TurnMsg = TurnMsg;
+
+	this.TurnMsg = TurnMsg;
 })(jQuery);
