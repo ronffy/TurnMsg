@@ -3,7 +3,16 @@
 ** time:2016.10.12
 ** 有两个公共方法：addHtml、empty
 */
-;(function($) { 
+
+;(function(root, factory){
+	if(typeof define === 'function' && define.amd){
+		define(['jquery'], factory);
+	}else if(typeof exports === 'object'){
+		module.exports = factory(require('jquery'));
+	}else{
+		root.TurnMsg = factory(root.jQuery);
+	}
+}(this, function($){
 	/*
 	** @param node [必传] <Str || jQuery>   滚动盒子的容器id名，可"#idName"或"idname"或jquery对象$("#idname")
 	** @param config [选传] <Obj>
@@ -90,5 +99,5 @@
 		return that;
 	}
 
-	this.TurnMsg = TurnMsg;
-})(jQuery);
+	return TurnMsg;
+}));
