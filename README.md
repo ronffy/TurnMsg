@@ -1,7 +1,5 @@
 # TurnMsg - 一条接一条的平滑出现信息的过渡动画
 
-### [点我预览](https://wanghairong-i.github.io/TurnMsg/)
-
 ## 介绍
 
 -   基于`jQuery`封装的
